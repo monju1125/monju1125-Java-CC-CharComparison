@@ -1,0 +1,30 @@
+{
+  "type": "java",
+  "testFiles": [
+    {
+      "path": "src/test/java/CharComparisonTest.java",
+      "testCases": [
+        {
+          "methodName": "charCompareTest1",
+          "label": "Test when the first array comes before the second (Returns -1)",
+          "description": "Verifies that comparing 'cat' to 'dog' returns -1, indicating 'cat' is lexicographically smaller."
+        },
+        {
+          "methodName": "charCompareTest2",
+          "label": "Test when the first array comes after the second (Returns 1)",
+          "description": "Verifies that comparing 'mouse' to 'dog' returns 1, indicating 'mouse' is lexicographically larger."
+        },
+        {
+          "methodName": "charCompareTest3",
+          "label": "Test when both arrays are equal (Returns 0)",
+          "description": "Verifies that comparing 'mouse' to 'mouse' returns 0, indicating equality."
+        },
+        {
+          "methodName": "charCompareTest4",
+          "label": "Test difference check after a common prefix (Returns 1)",
+          "description": "Verifies that comparing 'dot' to 'dog' returns 1, as 'dot' is lexicographically larger after checking the common 'do' prefix."
+        }
+      ]
+    }
+  ]
+}

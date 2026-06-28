@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 
 public class CharComparison {
     /**
@@ -15,32 +13,21 @@ public class CharComparison {
      */
     public int compare(char[] a, char[] b){
 
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
+        int minLength = Math.min(a.length, b.length);
 
-        for(int i=0; i< a.length; i++){
-            if(map1.containsKey(a[i])){
-            map1.put(a[i], map1.get(a[i])+1);  
-            } else {
-                map1.put(a[i], 1);
+        for(int i =0; i<minLength; i++){
+            if (a[i] < b[i]) {
+                return -1;               
+            } else if (a[i] > b[i]) {
+                return 1;
             }
         }
-
-        for(int j=0; j<b.length; j++){
-            if(map2.containsKey(b[j])){
-                map2.put(b[j], map2.get(b[j])+1);
-            }
-            else {
-                map2.put(b[j], 1);
-            }
-        }
-
-        if (map1.equals(map2)) {
-            return 0;            
-        } else if (map1.size() > map2.size()) {
-            return 1;
-        } else 
+        if (a.length < b.length) {
             return -1;
+        } else if (a.length > b.length) {
+            return 1;
+        }
 
+       return 0;
     }
 }

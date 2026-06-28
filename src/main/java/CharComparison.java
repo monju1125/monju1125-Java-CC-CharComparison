@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class CharComparison {
     /**
      * Given an array of char, determine if the array A belongs to the left or to the right of char array B lexigraphically.
@@ -11,6 +14,33 @@ public class CharComparison {
      * @return -1 if A is less than B, 1 if A is greater than B, and 0 if the two arrays are identical.
      */
     public int compare(char[] a, char[] b){
-        return 0;
+
+        Map<Character, Integer> map1 = new HashMap<>();
+        Map<Character, Integer> map2 = new HashMap<>();
+
+        for(int i=0; i< a.length; i++){
+            if(map1.containsKey(a[i])){
+            map1.put(a[i], map1.get(a[i])+1);  
+            } else {
+                map1.put(a[i], 1);
+            }
+        }
+
+        for(int j=0; j<b.length; j++){
+            if(map2.containsKey(b[j])){
+                map2.put(b[j], map2.get(b[j])+1);
+            }
+            else {
+                map2.put(b[j], 1);
+            }
+        }
+
+        if (map1.equals(map2)) {
+            return 0;            
+        } else if (map1.size() > map2.size()) {
+            return 1;
+        } else 
+            return -1;
+
     }
 }
